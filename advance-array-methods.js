@@ -89,7 +89,14 @@
         )
 
         console.log(newArr1);
-        //It returns the number which is divisible by 2 as well as 3.
+        //It returns the number which is 
+        // divisible by 2 as well as 3.
 
+        
+     //some() array method
 
+        let result = arr1.some((num) => num > 25 );
+        console.log(result);  
+        
+        //Output: true
      
