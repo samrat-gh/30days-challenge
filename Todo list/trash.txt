@@ -1,0 +1,91 @@
+// const box = document.getElementById("check");
+
+// const todoBox = document.getElementById("todo-list");
+// const musicBox = document.getElementById("music-player");
+
+// const btn = document.getElementById("btn");
+
+// btn.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     console.log("Todo Status is " + todoBox.checked);
+//     console.log("Music player status is " + musicBox.checked);
+// })
+
+// var boxStatus = [1, 1];
+// let trigger = () => console.log();
+
+// if(boxStatus[0] === 0){
+//     todoBox.checked = false;
+// }
+
+// else {
+//     todoBox.checked = true;
+// }
+
+
+// if(boxStatus[1] === 0){
+//     musicBox.checked = false;
+// }
+
+// else {
+//     musicBox.checked = true;
+// }
+
+
+//What is the solution to selecting multiple element at once
+// Creating new elements with for each
+// querySelectorAll();
+
+
+
+
+// const output= document.querySelectorAll('div');
+
+// const num = '72148515618158';
+// const numSet = new Set(num);
+// numSet.sort();
+// console.log(numSet);
+
+// const newArr = Array.from(new Set(num)); 
+// console.log(newArr);
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div> 
+    <form>
+        <input type="checkbox" name="check" id="todo-list"> 
+        <label for="check"> Todolist </label><br>
+
+
+        <input type="checkbox" name="check" id="music-player"> 
+        <label for="check"> Music player </label><br>
+
+
+
+
+               
+         <br>
+        <button type="submit" id="btn"> Submit</button>
+    </form>
+     </div> -->
+
+
+
+     <!-- <div class="one">
+        <div class="two">
+            <div class="three">
+                <div class="four">
+
+                </div>
+            </div>
+        </div>
+     </div> -->
