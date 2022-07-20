@@ -8,12 +8,13 @@ body{
 }
 
 div.container {
-    display: flex;
+    display: grid;
     height: 300px;
     width: 300px;
-    justify-content: space-around;
+    grid-template-rows: 1fr 1fr 2fr;
     background-color: #ffffff;
-    margin: auto auto;
+    margin: 200px auto;
+    padding: 50px;
 }
 
 div.container .action-btn{
