@@ -5,40 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todolist with JS</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
 
 <!-- HTML reference for JS   -->
 <div class="container"> 
-    <form>
-       <input type="checkbox" id="todo1"> 
-       <label for="todo1"> Wake up</label><br>
-
-       <input type="checkbox" id="todo2"> 
-       <label for="todo2"> Exercise </label><br>
-
-       <input type="checkbox" id="todo3"> 
-       <label for="todo3"> Bath & Brush</label><br>
-
-
-       <input type="checkbox" id="todo4"> 
-       <label for="todo4"> Have ur Breakfast</label><br>
-
-
-       <input type="checkbox" id="todo5"> 
-       <label for="todo5"> Clean your room</label><br><br>
-
-
-      <div class="action-btn"> 
-       <button type="submit" id="save"> Save</button>
-       <button type="submit" id="cancel"> Cancel</button><br>
-    </div>
-    
-    </form>
 
 </div>
         
+
+<div> 
+    <button type="button" id="add-item"> Add </button>
+    <div class="entry-container"> 
+        <input type="text" id="entry-box" placeholder="Add your task">
+        <button type="submit" id="save-entry"> Save </button>
+        <button type="submit" id="cancel-entry" onclick="onCancel()"> Cancel</button>
+
+
+    </div>
+</div>
 
 
 

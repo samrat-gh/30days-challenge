@@ -9,11 +9,11 @@
 
 
 const timer = setInterval(()=> {
-    document.write('The Run is running.');
+    document.write('The code is running.');
 } , 1000)
 
 
 setTimeout(()=>  {
-clearTimeout(timer);
+clearInterval(timer);
 }
 , 5000); 
