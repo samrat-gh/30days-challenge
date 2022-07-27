@@ -5,22 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todolist with JS</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- HTML reference for JS   -->
-<div class="container"> 
 
-</div>
-        
+  <button type="button" id="clear-data">Clear </button>      
 
 <div> 
     <button type="button" id="add-item"> Add </button>
     <div class="entry-container"> 
         <input type="text" id="entry-box" placeholder="Add your task">
         <button type="submit" id="save-entry"> Save </button>
-        <button type="submit" id="cancel-entry" onclick="onCancel()"> Cancel</button>
+        <button type="submit" id="cancel-entry"> Cancel</button>
 
 
     </div>
@@ -28,7 +26,14 @@
 
 
 
-   <script src="script.js">  </script>
+   <script src="script.js" defer>  </script>
+
+
+   <div class="container"> 
+    <button type="button" id="edit-status"> Edit check Status</button> <br>
+</div>
+
+<button type="button" id="save-status"> Save Check Status</button> <br>
 
 </body>
 </html>

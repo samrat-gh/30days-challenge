@@ -1,117 +1,147 @@
 
-const container = document.querySelector('div.container');
+let container = document.querySelector('.container');
+let addBtn = document.querySelector('#add-item');
 
-const nodeItems = [
-    {
-        order : 5,
-        setLabel: 'Get Breakfast',
-        checkStatus : 'false',
-        id: 'breakfast'
-    
-    },
+let addContainer = document.querySelector('.entry-container');
+let textField = document.querySelector('#entry-box');
+let saveBtn = document.querySelector('#save-entry');
+let cancelBtn = document.querySelector('#cancel-entry');
 
-        {
-            order : 1,
-            setLabel: 'wake up',
-            checkStatus : 'false',
-            id: 'wake'
+const clearStorage = document.querySelector('#clear-data');
+
+var dataArray = []; 
+dataArray = getData();  
+
+if (dataArray != null) {
+    newTaskGenerator();
+
+
+}
+
+
+
+saveBtn.addEventListener('click', 
+function receiver(event) {
+    event.preventDefault();
+       if(textField.value == ""){
+        alert("Text field empty, Enter task");
+        return;
+       } 
+
+       else {
+        let taskName = textField.value;
+        let dataArray = getData();
         
-        },
+        if (dataArray == null){
+            dataArray = [taskName];
+            setData();
+        }
 
-            {
-                order : 3,
-                setLabel: 'Brush & Bath',
-                checkStatus : 'false', 
-                id:'fresh'
-            
-            },
-
-                {
-                    order : 2,
-                    setLabel: 'Jogging',
-                    checkStatus : 'false',
-                    id: 'exercise'
-                
-                 },
-
-                    {
-                        order : 4,
-                        setLabel: 'Have some rest',
-                        checkStatus : 'true',
-                        id: 'rest' 
-                      
-                    }
-       
-];
+        dataArray.push(taskName);
+        setData(dataArray);
+        taskGenerator(taskName);
+       }
+  });
 
 
-    let myDom = nodeItems.map( (item, ind) => {
-    var item1 = document.createElement('input');
-    var item2 = document.createElement('label');
-    var breaker = document.createElement('br');
+function taskGenerator(name) {
+    let dataArray = getData();
+    console.log(dataArray);
+    if(dataArray != null ) {
+        
+const item1 = document.createElement('input');
+const item2 = document.createElement('label');
+const breaker = document.createElement('br');
+
+item1.setAttribute('type', 'checkbox');
+item1.setAttribute('id', name);
+item2.setAttribute('for', name);
+item2.innerText = name;
+
+console.log(name);
+
+container.append(item1, item2, breaker);
+} 
+}
 
 
-    item2.textContent = item.setLabel;
 
-    item1.setAttribute('type', 'checkbox');
-    item1.setAttribute('id', item.id);
-    item2.setAttribute('for', item.id);
-  
-    container.append(item1, item2, breaker);
 
+function setData(dataArray) {
+    localStorage.setItem("list", JSON.stringify(dataArray));  
+}
+
+
+
+function getData() {
+    return JSON.parse(localStorage.getItem("list"));
+}
+
+
+
+
+
+cancelBtn.addEventListener('click', ()=> {
+    addContainer.style.display = "none";
+
+})
+
+addBtn.addEventListener('click', ()=> {
+    addContainer.style.display = "block";
+})
+
+clearStorage.addEventListener('click', ()=>{
+    localStorage.clear();
+    document.location.reload(true);
 });
 
 
+function newTaskGenerator() {
+
+    let dataArray = getData();
+    dataArray.map((name) => {
+
+const item1 = document.createElement('input');
+const item2 = document.createElement('label');
+const breaker = document.createElement('br');
+
+item1.setAttribute('type', 'checkbox');
+item1.setAttribute('id', name);
+item2.setAttribute('for', name);
+item2.innerText = name;
+
+container.append(item1, item2, breaker);
+    }) };
 
 
-const addBtn = document.querySelector('#add-item');
-let entryBox = document.querySelector('input#entry-box');
+    function tickCheck() {
+    // if (dataArray != null){
+    
+        let nodeList = Array.from(container.querySelectorAll('input'));
+        console.log(nodeList);
 
-let entryContainer = document.querySelector('.entry-container');
+        let nodeListStatus = nodeList.map((item)=> {
+        return item.checked; }
+        );
+        console.log(nodeListStatus);
 
-entryContainer.style.display="none";
+        nodeList.map((item, ind)=> {
+            if(item.checked != nodeListStatus[ind]) {
+                 nodelistStatus[ind] = item.checked;
+            } }
+        )
+    }
 
-addBtn.addEventListener('click', (event)  => {
-   event.preventDefault();
-   entryContainer.style.display="block";
+    let editStatus = document.querySelector('#edit-status');
+    console.log(editStatus);
 
-});
-
-let saveEntry = document.querySelector('#save-entry');
-let cancelEntry = document.querySelector('#cancel-entry');
-
-
-
-            saveEntry.addEventListener('click', ()=> {
-               nodeItems.push({
-                       order: nodeItems.length + 1,
-                       setLabel: entryBox.value,
-                       checkStatus: false,
-                       id: entryBox.value
-               })
-
-            }); 
-
-         function onCancel() {
-              entryContainer.style.display="none";
-         }
-         
+    let saveStatus = document.querySelector('#save-status');
+    console.log(saveStatus);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+editStatus.addEventListener('click',
+    function enableSave() {
+    let a = document.querySelector('button #save-status');
+    saveStatus.style.display="block";
+    editStatus.style.display="none";
+    }) ;
