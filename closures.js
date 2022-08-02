@@ -1,8 +1,16 @@
-function a() {
-    let n = 10;
-    console.log(n);
-           function b() {
-        console.log(n);
-       }
+function outerFn(outerVar) {
+       return function innerfn(innerVar) {
+              console.log("outerVar is " + outerVar);
+              console.log("innerVar is " + innerVar);
+       } 
 }
-a();
+
+const newFn = outerFn('outside');
+newFn();
+
+
+let a  = 20;
+a = 40;
+
+
+console.log(a);

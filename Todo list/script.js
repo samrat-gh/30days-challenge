@@ -1,147 +1,125 @@
 
-let container = document.querySelector('.container');
-let addBtn = document.querySelector('#add-item');
+const container = document.querySelector('.container');
+const inputField = document.querySelector('#entry-field');
 
-let addContainer = document.querySelector('.entry-container');
-let textField = document.querySelector('#entry-box');
-let saveBtn = document.querySelector('#save-entry');
-let cancelBtn = document.querySelector('#cancel-entry');
+let count = 0;
 
-const clearStorage = document.querySelector('#clear-data');
-
-var dataArray = []; 
-dataArray = getData();  
-
-if (dataArray != null) {
-    newTaskGenerator();
-
-
+let arrData  = getData();
+if (arrData != null) {
+        createElement();
 }
 
 
-
-saveBtn.addEventListener('click', 
-function receiver(event) {
-    event.preventDefault();
-       if(textField.value == ""){
-        alert("Text field empty, Enter task");
-        return;
-       } 
-
-       else {
-        let taskName = textField.value;
-        let dataArray = getData();
-        
-        if (dataArray == null){
-            dataArray = [taskName];
-            setData();
-        }
-
-        dataArray.push(taskName);
-        setData(dataArray);
-        taskGenerator(taskName);
+function inputFieldfn(){
+       if (inputField.value ===  "") {
+        alert("Enter task");
        }
-  });
-
-
-function taskGenerator(name) {
-    let dataArray = getData();
-    console.log(dataArray);
-    if(dataArray != null ) {
-        
-const item1 = document.createElement('input');
-const item2 = document.createElement('label');
-const breaker = document.createElement('br');
-
-item1.setAttribute('type', 'checkbox');
-item1.setAttribute('id', name);
-item2.setAttribute('for', name);
-item2.innerText = name;
-
-console.log(name);
-
-container.append(item1, item2, breaker);
+       else {
+        let name = inputField.value;
+        myObj = {
+            setLabel: name,
+            status: false,
+        }
+        let arrData = getData();
+        if(arrData === null) {
+          arrData = [JSON.stringify(myObj)];
+          setData(arrData);
+        }
+        else {
+        pushData(myObj);
+        }
 } 
+inputField.value = "";
+createElement();
+
+}
+
+function createElement() {
+     let arrData = getData();
+
+if (count === 0 ){
+arrData.map((itemUnparsed, ind)=> {   
+
+let item = JSON.parse(itemUnparsed);
+    
+   let item1 = document.createElement('input');
+    let item2 = document.createElement('label');
+    let item3 = document.createElement('br');
+
+   item1.setAttribute('type', 'checkbox');
+   item1.setAttribute('id', ind);
+   item1.setAttribute('onclick', "statusOperator(this.id)");
+   item2.innerText = item.setLabel;
+
+    container.append(item1, item2, item3);
+    item1.checked = item.status;
+    count ++;
+ })
 }
 
 
+ else {
+    let indexNo = arrData.length - 1;
+      let itemUnparsed = arrData[indexNo];
+        let item = JSON.parse(itemUnparsed);
+            
+           let item1 = document.createElement('input');
+            let item2 = document.createElement('label');
+            let item3 = document.createElement('br');
+        
+           item1.setAttribute('type', 'checkbox');
+           item1.setAttribute('id', indexNo);
+           item1.setAttribute('onclick', "statusOperator(this.id)");
+           item2.setAttribute('for', item.setLabel);
+           item2.innerText = item.setLabel;
+        
+            container.append(item1, item2, item3);
+            item1.checked = item.status;
+ 
+       
+} }
 
 
-function setData(dataArray) {
-    localStorage.setItem("list", JSON.stringify(dataArray));  
+
+function pushData(data) {
+  let newData = JSON.stringify(data);
+  let arrData = getData();
+  console.log(arrData);
+  arrData.push(newData);
+  setData(arrData);
 }
 
-
+function setData (myArray) {
+    console.log(myArray);
+     localStorage.setItem('arr', JSON.stringify(myArray));
+}
 
 function getData() {
-    return JSON.parse(localStorage.getItem("list"));
+    let myArray = JSON.parse(localStorage.getItem('arr')); 
+    return myArray;
 }
 
 
+function statusOperator(value) {
+ let arrData = getData();
+ console.log(arrData);
 
-
-
-cancelBtn.addEventListener('click', ()=> {
-    addContainer.style.display = "none";
-
-})
-
-addBtn.addEventListener('click', ()=> {
-    addContainer.style.display = "block";
-})
-
-clearStorage.addEventListener('click', ()=>{
-    localStorage.clear();
-    document.location.reload(true);
-});
-
-
-function newTaskGenerator() {
-
-    let dataArray = getData();
-    dataArray.map((name) => {
-
-const item1 = document.createElement('input');
-const item2 = document.createElement('label');
-const breaker = document.createElement('br');
-
-item1.setAttribute('type', 'checkbox');
-item1.setAttribute('id', name);
-item2.setAttribute('for', name);
-item2.innerText = name;
-
-container.append(item1, item2, breaker);
-    }) };
-
-
-    function tickCheck() {
-    // if (dataArray != null){
-    
-        let nodeList = Array.from(container.querySelectorAll('input'));
-        console.log(nodeList);
-
-        let nodeListStatus = nodeList.map((item)=> {
-        return item.checked; }
-        );
-        console.log(nodeListStatus);
-
-        nodeList.map((item, ind)=> {
-            if(item.checked != nodeListStatus[ind]) {
-                 nodelistStatus[ind] = item.checked;
-            } }
-        )
+ arrData.map((unparsedItem, ind)=> {
+    let item = JSON.parse(unparsedItem);  
+    if (ind == value) {
+        console.log(ind, value);
+        item.status = !item.status;
+        arrData[ind] = JSON.stringify(item);
+        setData(arrData);
     }
 
-    let editStatus = document.querySelector('#edit-status');
-    console.log(editStatus);
 
-    let saveStatus = document.querySelector('#save-status');
-    console.log(saveStatus);
+ })
+ 
+}
 
 
-editStatus.addEventListener('click',
-    function enableSave() {
-    let a = document.querySelector('button #save-status');
-    saveStatus.style.display="block";
-    editStatus.style.display="none";
-    }) ;
+function clearData() {
+    localStorage.clear();
+    document.location.reload(true);
+}
