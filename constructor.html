@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- Constructor functions are the replacement for the factory function. They are used to create a
+    new object. It mainly revolves around new keyword and this keyword's idea. 
+
+Using Pascal Notation while declaring a constructor function is appreciable
+Pascal Notation uses Capital case on the first letter while Camel Case uses capital case in first letter
+every word except first-->
+
+<script>
+
+// Factory Function
+function factoryFun(num) {
+  return {
+    num,
+    sum() {
+      return num + num;
+    }
+  }
+}
+
+let number = factoryFun(27);
+console.log(number);
+
+// Constructor Function
+  function Myself(name) {
+    this.Name = name;
+    this.age = function ageCount() {
+        return 7 + 5;
+    } 
+  }
+
+  const obj = new Myself("Samrat");
+  console.log(obj);
+
+
+
+</script>
+
+</body>
+</html>

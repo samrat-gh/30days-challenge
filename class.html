@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<script>
+ 
+//    class User {
+           
+//           constructor(name, age, grade) {
+//                 this.name = name;
+//                 this.age = age;
+//                 this.grade = grade;
+//           }
+
+//                 login() {
+//                     console.log("logging in");
+//                     return this;
+//                 }
+                
+//                 logout() {
+//                     console.log("logging out");
+//                     return this;
+
+//                 }
+//           }
+
+//         //   let student1 = new User('Samrat', 14, 12);
+//         //   console.log(student1);
+
+//         //   let student2 = new User('Aron', 21, 10);
+//         //   console.log(student2);
+
+//         //   student1.login().logout();
+
+
+//         //Extending previous class
+
+//         class Monitor extends User {
+//               attendence(name) {
+//                     console.log(`${name} is present`) 
+//               }
+//         }
+
+//         let present = new Monitor('Karl', 12, 8);
+//         present.attendence(present.name);
+
+
+
+
+        function User(name, roll, grade) {
+                this.name = name;
+                this.roll = roll;
+                this.grade = grade;
+            
+                }
+        User.prototype.login = function login(name) {
+      
+            console.log(`${name} has just logged in`); }
+
+
+     let std = new User('sam', 25, 10 );
+     console.log(std);
+     std.login('sam');
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

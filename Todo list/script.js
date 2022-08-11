@@ -44,14 +44,19 @@ let item = JSON.parse(itemUnparsed);
     
    let item1 = document.createElement('input');
     let item2 = document.createElement('label');
-    let item3 = document.createElement('br');
+    let item3 = document.createElement('div');
+    let item4 = document.createElement('button');
+
 
    item1.setAttribute('type', 'checkbox');
    item1.setAttribute('id', ind);
    item1.setAttribute('onclick', "statusOperator(this.id)");
    item2.innerText = item.setLabel;
+   item4.setAttribute('class', 'fa-regular fa-pen-to-square' );
 
-    container.append(item1, item2, item3);
+
+   let labelDiv = container.appendChild(item3);
+    labelDiv.append(item1, item2, item4);
     item1.checked = item.status;
     count ++;
  })
@@ -65,16 +70,20 @@ let item = JSON.parse(itemUnparsed);
             
            let item1 = document.createElement('input');
             let item2 = document.createElement('label');
-            let item3 = document.createElement('br');
+            let item3 = document.createElement('div');
+            let item4 = document.createElement('button');
         
            item1.setAttribute('type', 'checkbox');
            item1.setAttribute('id', indexNo);
            item1.setAttribute('onclick', "statusOperator(this.id)");
            item2.setAttribute('for', item.setLabel);
            item2.innerText = item.setLabel;
+           item4.setAttribute('class', 'fa-regular fa-pen-to-square' );
+           
         
-            container.append(item1, item2, item3);
-            item1.checked = item.status;
+           let labelDiv = container.appendChild(item3);
+           labelDiv.append(item1, item2, item4);
+           item1.checked = item.status;
  
        
 } }

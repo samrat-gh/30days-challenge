@@ -4,6 +4,30 @@
     padding: 0px;
 }
 
+
+div.container {
+    margin: auto auto;
+    
+}
+
+.container div{
+  width: 95%;
+  margin-bottom: 15px;
+  padding: 3px 5px;
+  background-color: #eee; 
+  border-radius: 4px;
+}
+
+.container input {
+    width: 15px;
+    height: 15px;
+    margin: 0px 5px 0px 5px;
+}
+
+.container label {
+    font-size: 1.2rem;
+}
+
 #clear-data {
     margin-top: 20px;
     margin-bottom: 20px;
