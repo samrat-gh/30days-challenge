@@ -7,7 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-
     <script>
 
 const student1 = {
@@ -20,7 +19,6 @@ const student1 = {
     }
 }
 
-// student1.address("rampur", 27);
 
 const student2 = {
     name: 'rinku',
@@ -28,7 +26,11 @@ const student2 = {
     grade : 4
 }
 
-student1.address.call(student2, "kanpur", 41);
+student1.address.apply(student2, ["kanpur", 41]);
+
+
+let addressFun = student1.address.bind(); 
+console.log(addressFun);
 
 
     </script>

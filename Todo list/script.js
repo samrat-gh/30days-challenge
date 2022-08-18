@@ -52,7 +52,7 @@ let item = JSON.parse(itemUnparsed);
    item1.setAttribute('id', ind);
    item1.setAttribute('onclick', "statusOperator(this.id)");
    item2.innerText = item.setLabel;
-   item4.setAttribute('class', 'fa-regular fa-pen-to-square' );
+   item4.innerText = "x";
 
 
    let labelDiv = container.appendChild(item3);
@@ -78,7 +78,7 @@ let item = JSON.parse(itemUnparsed);
            item1.setAttribute('onclick', "statusOperator(this.id)");
            item2.setAttribute('for', item.setLabel);
            item2.innerText = item.setLabel;
-           item4.setAttribute('class', 'fa-regular fa-pen-to-square' );
+           item4.innerText = "x";
            
         
            let labelDiv = container.appendChild(item3);

@@ -28,6 +28,13 @@ div.container {
     font-size: 1.2rem;
 }
 
+
+.container div button{
+   text-align: right;
+   color: red;
+} 
+
+
 #clear-data {
     margin-top: 20px;
     margin-bottom: 20px;
