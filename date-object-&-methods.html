@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="date" id="date">
+    <button type="button" onclick="ageFinder()" id="saver"> Submit</button>
+    <p id="alert-box" style="visibility: hidden;"> </p>
+    
+ <!--  <script> 
+ 
+ let myDate = new Date();
+//  Saves the Date & time of the variable execution
+
+//saving a custom date (year, month, day, hour, minute, second)
+//The month starts with 0 so 0 is jan, 1 is Feb ...... 11 is Dec
+let pastDate = new Date(2003, 6, 27, 13, 24, 25); 
+console.log(pastDate);
+
+
+
+//Date Methods
+// .getFullYear() gives year in yyyy format
+    console.log(pastDate.getFullYear());
+
+// getMonth() gives you the month in format (0 - 11) 
+    console.log(pastDate.getMonth());
+
+
+// getDate() gives you date of month (0 - 31)
+console.log(pastDate.getDate());
+
+//getDay() gives you day of the week
+console.log(pastDate.getDay(0, 6));
+
+//getHours gives you hour time of the day (0 - 23)
+console.log(pastDate.getHours());
+
+//getTime() gives the number of millisecond after 1st Jan 1970
+console.log(pastDate.getTime());
+
+</script>  -->
+
+
+
+
+<script>
+function ageFinder() {
+    let birthdayInput = document.getElementById('date').value;
+    console.log(birthdayInput);     
+    let birthYear = Number(birthdayInput.substr(0, 4));
+    let birthMonth = Number(birthdayInput.substr(5, 2));
+    let birthDate = Number(birthdayInput.substr(8, 2));
+
+    console.log(birthYear, birthMonth, birthDate);
+
+    if(birthMonth == 0) {
+        var birthday = new Date(birthYear, birthMonth, birthDate);
+    } 
+
+    else {
+        var birthday = new Date(birthYear, birthMonth - 1, birthDate); 
+
+    }
+    const today = new Date();
+
+    console.log(birthday.getTime() > today.getTime());
+       
+    if(birthday.getTime() > today.getTime() ) {
+        document.querySelector('#alert-box').style.visibility = "visible";
+         document.querySelector('#alert-box').textContent = "Invalid Date";
+         document.querySelector('#alert-box').style.color = "red"; 
+
+    }
+ 
+    let yearDiff = today.getFullYear() - birthday.getFullYear();
+
+    //  To decrease date due to month
+    if(birthday.getDate() > today.getDate() && today.getMonth() > birthday.getMonth()){
+
+        // To get no. of days in month
+      let daysInMonth = new Date(birthYear, birthMonth, 0).getDate();
+      console.log(daysInMonth); 
+      
+    let temp = daysInMonth - birthDate;
+    var dayDiff = temp + today.getDate();
+
+    var monthDiff = today.getMonth() - birthday.getMonth();
+    monthDiff -= 1;
+    
+    
+  }
+  else {
+    var dayDiff = today.getDate() - birthday.getDate();
+    var monthDiff = today.getMonth() - birthday.getMonth();
+
+  }
+    console.log(`You are ${yearDiff} years, ${Math.abs(monthDiff)} months and ${Math.abs(dayDiff)} days old`);
+
+  console.log(birthday);
+  console.log(today);
+
+  const newYear = new Date(2022, 6, 0).getDate();
+  console.log(newYear);
+
+
+  if(birthday.getDate() > today.getDate() && today.getMonth() > birthday.getMonth()){
+      let daysInMonth = new Date(birthYear, birthMonth, 0).getDate();
+    console.log(daysInMonth); 
+      
+    let temp = daysInMonth - birthDate;
+
+    var dayDiff = temp + today.getDate();
+  }
+   
+}
+    
+
+</script>
+
+</body>
+</html>

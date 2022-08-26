@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ 
+        body {
+            background-color: blueviolet;
+        }
+        
+        div {
+            justify-content: center;
+            align-items: center;
+        }
+        
+        
+        div.one {
+           display: none;
+           width: 250px;
+           height: 250px;
+           border-radius: 100px;
+           background-color: black;
+        }
+        
+        div.two {
+            display: none;
+            width: 200px;
+           height: 200px;
+           border-radius: 90px;
+           background-color: white;
+        
+        }
+        
+        
+        div.three{
+           display: none;
+           width: 150px;
+           height: 150px;
+           border-radius: 80px;
+           background-color: black;
+        
+        }
+        
+        
+        div.four {
+           display: none;
+           width: 100px;
+           height: 100px;
+           border-radius: 70px;
+           background-color: white;
+        
+        }
+        
+        div.five {
+           display: none;
+           width: 50px;
+           height: 50px;
+           border-radius: 50px;
+           background-color: black;
+        }
+        
+        
+        </style>
+        
+        </head>
+        <body>
+        
+        
+        <div class="one">
+            <div class="two">
+                <div class="three">
+                    <div class="four">
+                        <div class="five"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+  <!-- <script>
+//This Script is written as a alternative of callback-hell.html's script.
+
+let one = document.querySelector('.one');
+let two = document.querySelector('.two');
+let three = document.querySelector('.three');
+let four = document.querySelector('.four');
+let five = document.querySelector('.five');
+
+let timer = 2000;
+
+   //Creating Promise is possible in two ways
+       //Using Promise Constructor (with new keyword)
+       // 
+
+       //Executor is a function that is executed by constructor inside a promise
+
+       //Resolve and Reject are two must pass paremeter inside a executor function
+
+       const prom = new Promise( (resolve, reject)=> {
+
+       setTimeout(()=> {
+
+       }, timer)
+
+       }) ;
+
+
+
+  </script>   -->
+
+
+
+
+
+  <script>
+
+   //Producing Promise
+   let myPromise = new Promise( (resolve, reject)=>{
+    resolve("The task is fulfilled");
+    reject("The task is terminated");
+   } );
+
+   //Promise Consuming
+   myPromise.then( (value, error) => {
+    console.log(value);
+    // console.log(error);
+   })
+
+   myPromise.catch ((value, error)=> {
+    consoe.log(error);
+   });
+
+
+
+
+
+
+  </script>
+    
+</body>
+</html>

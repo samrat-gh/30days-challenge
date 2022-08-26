@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+
+  div.container{
+    display: grid;
+     /* Turns the layout into grid which dont really change things */
+
+
+     gap: 1.5rem;
+     /* Sets the gap between child divs to 1.5rem */
+     
+    grid-template-rows: 1fr 1fr 1fr; 
+    /* grid-template-rows is used very least and these are left to set automatically by grid 
+    for those design that are tipically least strict in terms of rows  */
+         
+
+
+
+
+    grid-template-columns: 1fr 1fr 1fr;
+    /* is same as grid-template-columns: repeat(3, 1fr) 
+      It will create three columns of 1fraction*/
+
+    width: 400px;
+    height: 400px;
+  }
+
+/* div.container div{
+   width: 70px;
+   height: 70px;   
+} */
+
+/* Child decoration */
+
+div.one{
+    background-color: rgb(53, 47, 47);
+}
+
+div.two{
+    background-color: rgb(116, 11, 110);
+}
+
+
+div.three{
+    background-color: rgb(197, 179, 20);
+}
+
+
+div.three{
+    background-color: rgb(122, 13, 13);
+}
+
+
+div.four{
+    background-color: rgb(6, 97, 29);
+}
+
+
+div.five{
+    background-color: rgb(6, 63, 100);
+}
+
+
+div.six{
+    background-color: rgb(24, 23, 117);
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+   <!-- CSS Grid -->
+
+    <div class="container">
+        <div class="one"> </div>
+        <div class="two"> </div>
+        <div class="three"> </div>
+        <div class="four"> </div>
+        <div class="five"> </div>
+        <div class="six"> </div>    
+    </div>
+
+
+    
+</body>
+</html>

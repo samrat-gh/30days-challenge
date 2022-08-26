@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+let str1 = "hami";
+let str2 = "dami";
+
+//String Functionalities
+
+
+//charAt() 
+  console.log(str1.charAt(2));
+     //Retunrs the character at index no.2 of the given string, space counted
+
+//charCodeAt()
+   console.log(str2.charCodeAt(3));
+     //Returns the unicode  of the character at indec no.3
+
+//concat()
+   console.log(str1.concat(str2));
+      //Concat the prototype with the another variable, also works for array
+
+//startsWith()
+    console.log(str1.startsWith('ami'));
+      //Return boolean values by checking whether the characters matches with starting characters of string
+      // A single unmatching string can retrun false
+    
+
+//endsWith()
+    console.log(str2.endsWith('mi'));
+       // Return Boolean value by checking whether the characters matches with the ending characters of 
+       // string
+
+ // String.fromCharCode() 
+    console.log(String.fromCharCode(114));
+       /* Using Global String Object as prototype, fromCharCode() accepts numeric character code inside
+        parenthesis and returns the string value of corresponding character   */
+
+ //includes()   
+    console.log(str1.includes('iam'));
+       /* Returns a boolean value by checking whether the group of character are present in the prototype 
+       or not. The complete sets should be present serially. */
+
+//repeat()
+    console.log(str1.repeat(3));
+
+//indexof()
+let str3 = "Samrat killed a rat";
+    console.log(str3.indexOf('rat'));
+   //  Returns the index number of the first matched character
+
+console.log(str3.lastIndexOf('rat'));
+   //  Returns the index number of the last matched character
+
+
+ //match()
+   //  Match return an array of information regardinf the matched characters
+   console.log(str3.match(/rat/));  
+
+
+
+  //replace() 
+    //Replace uses a regular expression to replace the exiciting character with its second argument
+
+  console.log(str3.replace(/rat/g, "mad"));
+//   console.log(docs.replace(/chamatkar/g, "Balatkaar"));
+
+//search()
+   //It matches the string or regular expression with the string and return its position as index.
+   // A bit different
+   console.log(str3.search(/rat/));
+
+// slice()
+   console.log(str3.slice(7,11))
+   //It trims the characters from string thorugh the given index no and return new string
+
+//split()
+    //It divides the string into array of character present before and after that. 
+    // Here it splited with space
+     console.log(str3.split(" "));
+
+  
+  //substr()
+     console.log(str3.substr(4, 5));
+     //It will trim five characters(alphabets) from index 4.
+     // The second parameter is the number of alphabets you want
+
+     //substring
+     console.log(str3.substring(0, 4));
+   //   It is same as slice as it return the string trimmed from the first index no to fourth in this case. 
+
+  //toLoweCase()
+    //Return a string with all letters lowercase
+    console.log(str3.toLowerCase());
+    
+    
+    //toUpperCase()
+     //Return a string with all letters uppercase
+     console.log(str3.toUpperCase());
+
+
+     //trim()
+     //removes all the un-necessery space from a string 
+     //Normally the spaces before first letter and after last letter are removed
+     let trimmer = "          I am hero          "
+     console.log(trimmer.trim());
+     
+
+ 
+
+
+
+
+
+ 
+
+
+    
+ //replace()
+
+
+       
+
+
+
+
+
+</script>
+
+    
+</body>
+</html>
